@@ -9,7 +9,7 @@ ws.write('nijiushi yige zhu');
 
 
 ws.on('open',()=>{
-  console.log('你就是个猪')
+  console.log('哈哈哈哈哈哈哈')
 });
 ws.on('close',()=>{
   console.log('你追不上我吧')
