@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    *{
+      list-style: none;
+    }
+    #box{
+      height:500px;
+      width:500px;
+      margin: 150px auto;
+    }
+    li{
+      float:left;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+<div id="box">
+  <ul></ul>
+</div>
+</body>
+<script type="text/javascript">
+  window.onload = function () {
+      let box=document.getElementById('box');
+      let ullist=document.querySelector('ul');
+
+      let num=3;
+      let  sum=5;
+      let a=0;
+      let aqa=[];
+
+
+      //生成颜色
+      function rgba(){
+        let a= parseInt(Math.random()*300);
+        if(a>255){
+          a=255;
+        }
+        let b= parseInt(Math.random()*300);
+        if(b>255){
+          b=150;
+        }
+        let g= parseInt(Math.random()*300);
+        if(g>255){
+          g=150;
+        }
+        return a+','+b+','+g
+      }
+      //把生成的颜色添加到数组中
+      for(let j=0;j<100;j++){
+        aqa.push(rgba())
+      }
+
+      //创建li
+      chuang();
+      function chuang(){
+        sum=sum+5/20;
+        console.log(sum)
+        for(let i=0;i<num*num;i++){
+          let li=document.createElement('li');
+          li.style.height=(box.offsetHeight-num*2)/num+'px';
+          li.style.width=(box.offsetWidth-num*2)/num+'px';
+          li.style.backgroundColor='rgba('+aqa[a]+')';
+          ullist.appendChild(li);
+        }
+        a++;
+        num++;
+        bian();
+        www();
+
+      };
+      //随机一个改变透明度
+      function bian(){
+        let lilist=document.querySelectorAll('li');
+        lilist[parseInt(Math.random()*(lilist.length-1))].style.opacity=sum/10;
+
+//        console.log(parseInt(Math.random() * (num * num - 1)));
+      }
+      //添加点击事件
+
+      function www(){
+
+        let list=document.querySelectorAll('li')
+        for(let i=0;i<list.length;i++){
+          list[i].onclick=function(){
+            if(this.style.opacity==sum/10){
+              console.log(sum);
+              run();
+            }
+          }
+        }
+      }
+      //删除前边的li创建新的
+      function run(){
+        let li=document.querySelectorAll('li')
+        ullist.innerHTML='';
+        chuang();
+
+
+      }
+
+
+  }
+</script>
+</html>
