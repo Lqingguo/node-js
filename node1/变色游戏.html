@@ -60,9 +60,12 @@
       chuang();
       function chuang(){
         sum=sum+5/20;
-        console.log(sum)
+        console.log(sum);
         if(sum==10){
           alert('game over');
+          num=0;
+          h.innerHTML='';
+
         }
         for(let i=0;i<num*num;i++){
           let li=document.createElement('li');
@@ -83,7 +86,6 @@
       function bian(){
         let lilist=document.querySelectorAll('li');
         lilist[parseInt(Math.random()*(lilist.length-1))].style.opacity=sum/10;
-
       }
       //添加点击事件
       function www(){
