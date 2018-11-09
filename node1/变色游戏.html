@@ -18,7 +18,7 @@
     }
     li{
       float:left;
-      border: 1px solid #000;
+      border: 1px solid #fff;
     }
     h1{
       display: inline-block;
@@ -28,7 +28,6 @@
 <body>
 <h1></h1>
 <div id="box">
-
   <ul></ul>
 </div>
 </body>
@@ -61,9 +60,9 @@
       chuang();
       function chuang(){
         sum=sum+5/20;
-        if(sum==12){
+        console.log(sum)
+        if(sum==10){
           alert('game over');
-          ullist.innerHTML='';
         }
         for(let i=0;i<num*num;i++){
           let li=document.createElement('li');
@@ -84,6 +83,7 @@
       function bian(){
         let lilist=document.querySelectorAll('li');
         lilist[parseInt(Math.random()*(lilist.length-1))].style.opacity=sum/10;
+
       }
       //添加点击事件
       function www(){
@@ -92,7 +92,7 @@
           list[i].onclick=function(){
             if(this.style.opacity==sum/10){
               b++;
-              h.innerHTML='第'+b+'关'
+              h.innerHTML='第'+b+'关';
               run();
             }
           }
