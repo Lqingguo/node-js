@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+  </style>
+</head>
+<body>
+<button>按钮</button>
+</body>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+  window.onload = function () {
+    $('button').click(function(){
+      $.post('http://localhost:4000/text',function (data){
+          console.log(data);
+      })
+    })
+  }
+</script>
+</html>

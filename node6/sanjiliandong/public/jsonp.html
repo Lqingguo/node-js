@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+  </style>
+</head>
+<body>
+  <button id="button">按钮</button>
+</body>
+<script type="text/javascript">
+        document.getElementById('button').onclick=function(){
+         const script = document.createElement('script');
+         window.newdate=function (data){
+           console.log(data)
+         }
+
+         script.src= 'http://localhost:4000/ajax?callback=newdate';
+         document.body.appendChild(script);
+        }
+</script>
+</html>

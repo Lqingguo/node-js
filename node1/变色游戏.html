@@ -19,6 +19,7 @@
     li{
       float:left;
       border: 1px solid #fff;
+      box-sizing: border-box;
     }
     h1{
       display: inline-block;
@@ -40,13 +41,15 @@
       //创建一个num作为li个数的增量
       let num=1;
       //创建一个num作为透明度的增量
-      let  sum=5;
+      let sum=5;
+      //创建一个b为第几关的关数
       let b=0;
+      //创建一个a作为存储数组颜色每一个的索引下标
       let a=0;
       //创建一个数组存储生成的颜色
       let aqa=[];
       //生成颜色
-      function rgba(){
+      function randemcolor(){
         let a= parseInt(Math.random()*255);
         let b= parseInt(Math.random()*255);
         let g= parseInt(Math.random()*255);
@@ -54,22 +57,24 @@
       }
       //把生成的颜色添加到数组中
       for(let j=0;j<100;j++){
-        aqa.push(rgba())
+        aqa.push(randemcolor())
       }
       //创建li
-      chuang();
-      function chuang(){
+    //首先调用一下
+      found();
+      function found(){
         sum=sum+5/20;
         console.log(sum);
         if(sum==10){
           num=0;
           h.innerHTML='';
+          box.style.display='none';
           alert('game over');
         }
         for(let i=0;i<num*num;i++){
           let li=document.createElement('li');
-          li.style.height=(box.offsetHeight-num*2)/num+'px';
-          li.style.width=(box.offsetWidth-num*2)/num+'px';
+          li.style.height=box.offsetHeight/num+'px';
+          li.style.width=box.offsetWidth/num+'px';
           li.style.backgroundColor='rgba('+aqa[a]+')';
           ullist.appendChild(li);
         }
@@ -78,16 +83,16 @@
         if(num>=14){
           num=14
         }
-        bian();
-        www();
-      };
+        Change ();
+        lionclick();
+      }
       //随机一个改变透明度
-      function bian(){
+      function Change(){
         let lilist=document.querySelectorAll('li');
         lilist[parseInt(Math.random()*(lilist.length-1))].style.opacity=sum/10;
       }
       //添加点击事件
-      function www(){
+      function lionclick(){
         let list=document.querySelectorAll('li');
         for(let i=0;i<list.length;i++){
           list[i].onclick=function(){
@@ -103,7 +108,7 @@
       function run(){
         let li=document.querySelectorAll('li');
         ullist.innerHTML='';
-        chuang();
+        found();
       }
   }
 </script>
